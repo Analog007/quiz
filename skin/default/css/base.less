@@ -1,0 +1,32 @@
+//Basic thing like mixins and veriables
+
+@green: #66cc00;
+@medium-green: #56b104;
+@gray: #525252;
+@light-gray: #eaecf3;
+
+//default colors
+
+@default-border: @light-gray;
+
+
+.solid-border(@color: @default-border, @width: 1px){
+  border: @width solid @color;
+}
+
+.rounded(@size: 1px) {
+  border-radius: @size;
+}
+
+.transition-bg(@time: 250ms) {
+  -webkit-transition: background-color @time ease-out;
+  -moz-transition: background-color @time ease-out;
+  -o-transition: background-color @time ease-out;
+  transition: background-color @time ease-out;
+}
+
+//Base html options
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
