@@ -51,7 +51,8 @@ body {
   flex: 1 1 0;
   max-width: 80%;
 }
-.module-quiz .module-quiz-type-grid .question-item:hover {
+.module-quiz .module-quiz-type-grid .question-item:hover,
+.module-quiz .module-quiz-type-grid .question-item.selected {
   background-color: #66cc00;
 }
 .module-quiz .module-quiz-type-list .question-item {
@@ -83,6 +84,7 @@ body {
   font-size: 17px;
   margin-left: 5px;
 }
-.module-quiz .module-quiz-type-list .question-item:hover {
+.module-quiz .module-quiz-type-list .question-item:hover,
+.module-quiz .module-quiz-type-list .question-item.selected {
   background-color: #66cc00;
 }
