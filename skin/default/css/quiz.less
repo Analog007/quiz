@@ -5,17 +5,18 @@
 .module-quiz {
   h2 small {
     display: block;
+    margin-top: 10px;
   }
 
-  .row {
-    margin: 1.5em -7.5px;
-    display: flex;
-  }
-  [class*="col-"] {padding: 0 7.5px;}
 
   .module-quiz-type-grid {
     margin-bottom: 15px;
-    max-width: 768px;
+
+    .row {
+      margin: 0.5em -2.5px;
+      display: flex;
+    }
+    [class*="col-"] {padding: 0 2.5px;}
 
     .question-item {
       .solid-border();
@@ -34,10 +35,60 @@
         color: @gray;
         font-style: italic;
         margin-bottom: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      i {
+        font-size: 18px;
+        margin-right: 5px;
+        margin-top: 5px;
+        vertical-align: top;
+        width: 18px;
       }
 
       .subtitle {
+        display: inline-block;
         font-weight: 500;
+        font-size: 18px;
+        flex: 1 1 0;
+        max-width: 80%;
+      }
+
+      &:hover {
+        background-color: @green;
+      }
+    }
+  }
+
+  .module-quiz-type-list {
+    .question-item {
+      .solid-border();
+      .rounded();
+      .transition-bg();
+      cursor: pointer;
+      height: 100%;
+      margin-bottom: 5px;
+      padding: 10px;
+
+      .small {
+        color: @gray;
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+
+      i {
+        font-size: 18px;
+        margin-right: 5px;
+        margin-top: 5px;
+        vertical-align: top;
+        width: 18px;
+      }
+
+      .subtitle {
+        font-weight: 800;
+        font-size: 17px;
+        margin-left: 5px;
       }
 
       &:hover {

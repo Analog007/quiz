@@ -1,56 +1,17 @@
-var questions  = {
-    "id":1,
-    "multiple":false,
-    type: 'grid',
-    "questions":
-        [
-            {
-                "title":"Pick an animal",
-                "elements":
-                    [
-                        {
-                            "":"15011",
-                            "description":"Picture of a cpu",
-                            "localion":"img.cloudimages.us/2012/06/02/mycpu.png",
-                            "type":"png"
-                        },
-                        {
-                            "pic_id":"15012",
-                            "description":"Picture of a cpu two",
-                            "localion":"img.cloudimages.us/2012/06/02/thiscpu.png",
-                            "type":"png"
-                        }
-                    ]
-            },
-            {
-                "pic_id":"1501",
-                "description":"Picture of a cpu",
-                "localion":"img.cloudimages.us/2012/06/02/cpu.png",
-                "type":"png"
-            }
-        ],
-};
+$('.question-item').click(function(){
+    var el = $(this);
+if(!el.parents('.question').data('select-multiple')){
+    if(!el.hasClass('selected')) {
+        el.parents('.question').find('.selected').removeClass('selected').find('i').toggleClass('fa-check-square-o fa-square-o');
+        el.addClass('selected').find('i').toggleClass('fa-square-o fa-check-square-o');
+    } else {
 
-var category = {
-    "1": []
+    }
+} else {
+    if(!el.hasClass('selected')) {
+        el.addClass('selected').find('i').toggleClass('fa-square-o fa-check-square-o');
+    } else {
+        el.addClass('selected').find('i').toggleClass('fa-check-square-o fa-square-o');
+    }
 }
-
-(function( $ ) {
-
-    $.fn.quiz = function(options) {
-        // This is the easiest way to have default options.
-        var settings = $.extend({
-            // These are the defaults.
-            color: "#556b2f",
-            backgroundColor: "white"
-        }, options );
-
-
-        this.filter( "a" ).each(function() {
-            var link = $( this );
-            link.append( " (" + link.attr( "href" ) + ")" );
-        });
-        return this;
-    };
-
-}( jQuery ));
+})
