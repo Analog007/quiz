@@ -1,4 +1,9 @@
 //array to store data instead of database
+var main = {
+    "title":"Which Greenpeace Campaign Are You?",
+    "subtitle":"How will you be saving the world today?"
+}
+
 var questions = {
     "1": {
         "id": 1,
@@ -41,77 +46,77 @@ var questions = {
     "2": {
         "id": 2,
         "isActive": true,
-        "title": "Pick an animal",
+        "title": "What is your ideal weekend activity?",
         "type": "grid",
         "multiple": "false",
         "elements": [{
             "category_id": 1,
             "description": "Greenpeace",
-            "subtitle": "",
-            "pic_location": "img/q2/q1-1.jpg"
+            "subtitle": "Ice Skating",
+            "pic_location": "img/q2/q2-1.jpg"
         }, {
             "category_id": 2,
             "description": "Greenpeace",
-            "subtitle": "",
-            "pic_location": "img/q2/q1-2.jpg"
+            "subtitle": "Scuba Diving",
+            "pic_location": "img/q2/q2-2.jpg"
         }, {
             "category_id": "3",
             "description": "Greenpeace",
-            "subtitle": "",
-            "pic_location": "img/q2/q1-3.jpg"
+            "subtitle": "A Long Walk in the Woods",
+            "pic_location": "img/q2/q2-3.jpg"
         }, {
             "category_id": "4",
             "description": "Greenpeace",
-            "subtitle": "",
-            "pic_location": "img/q2/q1-4.jpg"
+            "subtitle": "Cooking",
+            "pic_location": "img/q2/q2-4.jpg"
         }, {
             "category_id": "5",
             "description": "Greenpeace",
-            "subtitle": "",
-            "pic_location": "img/q2/q1-5.jpg"
+            "subtitle": "Cycling",
+            "pic_location": "img/q2/q2-5.jpg"
         }, {
             "category_id": "6",
             "description": "Greenpeace",
-            "subtitle": "I prefer humans",
-            "pic_location": "img/q2/q1-6.jpg"
+            "subtitle": "Shopping",
+            "pic_location": "img/q2/q2-6.jpg"
         }]
     },
     "3": {
         "id": 3,
         "isActive": true,
-        "title": "Pick an animalsss",
+        "title": "If you could live anywhere, where would it be?",
         "type": "grid",
-        "multiple": "true",
+        "multiple": "false",
         "elements": [{
             "category_id": 1,
-            "description": "Greenpeace",
+            "description": "tambaco / Via Flickr",
             "subtitle": "",
-            "pic_location": "img/q1-1.jpg"
+            "pic_location": "img/q3/q3-1.jpg"
         }, {
             "category_id": 2,
-            "description": "Greenpeace",
+            "description": "pandiyan / Via Flickr",
             "subtitle": "",
-            "pic_location": "img/q1-2.jpg"
+            "pic_location": "img/q3/q3-2.jpg"
         }, {
             "category_id": "3",
             "description": "Greenpeace",
             "subtitle": "",
-            "pic_location": "img/q1-3.jpg"
+            "pic_location": "img/q3/q3-3.jpg"
         }, {
             "category_id": "4",
-            "description": "Greenpeace",
+            "description": "baronreznik / Via Flickr",
             "subtitle": "",
-            "pic_location": "img/q1-4.jpg"
+            "pic_location": "img/q3/q3-4.jpg"
         }, {
             "category_id": "5",
-            "description": "Greenpeace",
+            "description": "starsantique / Via Flickr",
             "subtitle": "",
-            "pic_location": "img/q1-5.jpg"
+            "pic_location": "img/q3/q3-5.jpg"
         }, {
             "category_id": "6",
             "description": "Greenpeace",
-            "subtitle": "I prefer humans",
-            "pic_location": "img/q1-6.jpg"
+            "subtitle": "",
+            "pic_location": "img/q3/q3-6.jpg"
         }]
     },
     "4": {
@@ -139,12 +144,164 @@ var questions = {
             "category_id": "6",
             "subtitle": "Bubbly and energetic"
         }]
+    },
+    "5": {
+        "id": 5,
+        "isActive": true,
+        "title": "If you won a lot of money, what would you spend it on?",
+        "type": "grid",
+        "multiple": "false",
+        "elements": [{
+            "category_id": 1,
+            "description": "Greenpeace",
+            "subtitle": "ALL the clothes",
+            "pic_location": "img/q5/q5-1.jpg"
+        }, {
+            "category_id": 2,
+            "description": "Greenpeace",
+            "subtitle": "A trip to the North pole",
+            "pic_location": "img/q5/q5-2.jpg"
+        }, {
+            "category_id": "3",
+            "description": "Greenpeace",
+            "subtitle": "A GIANT wind turbine",
+            "pic_location": "img/q5/q5-3.jpg"
+        }, {
+            "category_id": "4",
+            "description": "Greenpeace",
+            "subtitle": "A Sailing Boat",
+            "pic_location": "img/q5/q5-4.jpg"
+        }, {
+            "category_id": "5",
+            "description": "Greenpeace",
+            "subtitle": "Food. Lots and lots of food.",
+            "pic_location": "img/q5/q5-5.jpg"
+        }, {
+            "category_id": "6",
+            "description": "Greenpeace",
+            "subtitle": "Thousands of plants",
+            "pic_location": "img/q5/q5-6.jpg"
+        }]
+    },
+    "6": {
+        "id": 6,
+        "isActive": true,
+        "title": "What is your favourite colour?",
+        "type": "grid",
+        "multiple": "false",
+        "elements": [{
+            "category_id": 1,
+            "description": "",
+            "subtitle": "",
+            "pic_location": "img/q6/q6-1.jpg"
+        }, {
+            "category_id": 2,
+            "description": "",
+            "subtitle": "",
+            "pic_location": "img/q6/q6-2.jpg"
+        }, {
+            "category_id": "3",
+            "description": "",
+            "subtitle": "",
+            "pic_location": "img/q6/q6-3.jpg"
+        }, {
+            "category_id": "4",
+            "description": "",
+            "subtitle": "",
+            "pic_location": "img/q6/q6-4.jpg"
+        }, {
+            "category_id": "5",
+            "description": "",
+            "subtitle": "",
+            "pic_location": "img/q6/q6-5.jpg"
+        }, {
+            "category_id": "6",
+            "description": "",
+            "subtitle": "",
+            "pic_location": "img/q6/q6-6.jpg"
+        }]
+    },
+    "7": {
+        "id": 7,
+        "isActive": true,
+        "title": "Pick a cat",
+        "type": "grid",
+        "multiple": "false",
+        "elements": [{
+            "category_id": 1,
+            "description": "Greenpeace",
+            "subtitle": "",
+            "pic_location": "img/q7/q7-1.jpg"
+        }, {
+            "category_id": 2,
+            "description": "jessandcolin / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q7/q7-2.jpg"
+        }, {
+            "category_id": "3",
+            "description": "meantux / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q7/q7-3.jpg"
+        }, {
+            "category_id": "4",
+            "description": "mundoworldmond / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q7/q7-4.jpg"
+        }, {
+            "category_id": "5",
+            "description": "tiendacartidadegato / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q7/q7-5.jpg"
+        }, {
+            "category_id": "6",
+            "description": "skittledog / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q7/q7-6.jpg"
+        }]
+    },
+    "7": {
+        "id": 7,
+        "isActive": true,
+        "title": "Pick a Beyoncé",
+        "type": "grid",
+        "multiple": "false",
+        "elements": [{
+            "category_id": 1,
+            "description": "Nonu photography / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q8/q8-1.jpg"
+        }, {
+            "category_id": 2,
+            "description": "HM",
+            "subtitle": "",
+            "pic_location": "img/q8/q8-2.jpg"
+        }, {
+            "category_id": "3",
+            "description": "Via mp3waxx.com",
+            "subtitle": "",
+            "pic_location": "img/q8/q8-3.jpg"
+        }, {
+            "category_id": "4",
+            "description": "hotgossipitalia / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q8/q8-4.jpg"
+        }, {
+            "category_id": "5",
+            "description": "single ladies / Via YouTube",
+            "subtitle": "",
+            "pic_location": "img/q8/q8-5.jpg"
+        }, {
+            "category_id": "6",
+            "description": "Complex Mag / Via Flickr",
+            "subtitle": "",
+            "pic_location": "img/q8/q8-6.jpg"
+        }]
     }
 };
 
 var results = {
     "1": {
-        "title": "Pick an animal",
+        "title": "You got: Food",
         "description": "lorem ipsum",
         "pic_location": "img/q1-1.jpg"
     },
