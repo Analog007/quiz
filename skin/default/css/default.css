@@ -107,6 +107,7 @@ body {
   width: 100%;
 }
 .module-quiz .module-quiz-result .results .description {
+  font-size: 18px;
   margin: 15px 0;
 }
 .module-quiz .module-quiz-result .results .small {

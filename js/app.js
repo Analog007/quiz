@@ -1,4 +1,4 @@
-//array to store data instead of database
+//arrays to store data instead of database
 var main = {
     "title":"Which Greenpeace Campaign Are You?",
     "subtitle":"How will you be saving the world today?"
@@ -341,12 +341,14 @@ var results = {
     //create the questions based on the json array
     $.fn.quiz = function() {
         var el = this;
-
+        // load the questinos
         $.each(questions, function() {
+            //check if the question turned off
             if(this.isActive == false){
                 return true;
             }
-           if(this.type == 'grid') {
+            //render the grid view
+            if(this.type == 'grid') {
                var item;
                var element = this;
 
@@ -386,10 +388,12 @@ var results = {
                    }
                    el.find('#question-'+element.id).append(output);
                })
-           } else if(this.type == 'list') {
-               var element = this;
+            }
+            //render the list view
+            else if(this.type == 'list') {
+                var element = this;
 
-               $.ajax({
+                $.ajax({
                    url: 'view/list-wrap.html',
                    type: "get",
                    async: false,
@@ -400,8 +404,8 @@ var results = {
 
                            el.append(data);
                    }
-               });
-               $.get('view/list.html', function (data) {
+                });
+                $.get('view/list.html', function (data) {
                    var output = "";
                    output += '<div class="row">';
                    $.each(element.elements, function(){
@@ -412,8 +416,8 @@ var results = {
                    });
                    output += '</div>';
                    el.find('#question-'+element.id).append(output);
-               })
-           }
+                })
+            }
         });
     };
 
@@ -422,6 +426,7 @@ var results = {
         var el = this;
         var answers = [];
         if($('.question:not(.answered)').length){
+            //if not all the question answered
             el.html("<h4>Please answer the following questions: </h4>");
             $('.question:not(.answered)').each(function(){
                 el.append('<a class="not-completed" href="#'+$(this).attr("id")+'" title="'+$(this).find('h3').text()+'">'+$(this).find('h3').text()+'</a>');
@@ -444,6 +449,11 @@ var results = {
                         .replace(/{{img_source}}/g,results[cat].img_source);
 
                         el.html(data);
+                        //scroll to the result
+                        $('html,body').animate({
+                            scrollTop: $(el).offset().top},
+                        250);
+
                         //turn off click functionality
                         $(document).off('click','.question-item');
                 }
