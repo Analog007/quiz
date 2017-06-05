@@ -426,7 +426,6 @@ var results = {
             $('.question:not(.answered)').each(function(){
                 el.append('<a class="not-completed" href="#'+$(this).attr("id")+'" title="'+$(this).find('h3').text()+'">'+$(this).find('h3').text()+'</a>');
             })
-
         } else {
             $('.question.answered .selected').each(function(){
                 answers.push($(this).data("id"));
@@ -445,12 +444,10 @@ var results = {
                         .replace(/{{img_source}}/g,results[cat].img_source);
 
                         el.html(data);
-                        //turn ogg click functionality
+                        //turn off click functionality
                         $(document).off('click','.question-item');
                 }
             });
-
-
         }
     }
 
@@ -468,8 +465,6 @@ var results = {
         }
         return result;
     }
-
-
 }( jQuery ));
 
 //click functions
