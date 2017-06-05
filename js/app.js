@@ -107,12 +107,19 @@ var obj = {
         var el = this;
         $.each(obj, function() {
            if(this.type == 'grid') {
+               var item;
                var element = this;
-               $.get('view/grid-wrap.html', function(data){
+               $.ajax({
+                   url: 'view/grid-wrap.html',
+                   type: "get",
+                   async: false,
+                   success: function(data){
                    data = data.replace(/{{title}}/g,element.title)
                        .replace(/{{id}}/g,element.id)
                        .replace(/{{multiple}}/g,element.multiple);
-                   el.append(data);
+
+                       el.append(data);
+                   }
                });
                $.get('view/grid.html', function (data) {
                    var output = "";
@@ -140,11 +147,16 @@ var obj = {
                })
            } else if(this.type == 'list') {
                var element = this;
-               $.get('view/list-wrap.html', function(data){
-                   data = data.replace(/{{title}}/g,element.title)
-                       .replace(/{{id}}/g,element.id)
-                       .replace(/{{multiple}}/g,element.multiple);
-                   el.append(data);
+               $.ajax({
+                   url: 'view/list-wrap.html',
+                   type: "get",
+                   async: false,
+                   success: function(data) {
+                       data = data.replace(/{{title}}/g, element.title)
+                           .replace(/{{id}}/g, element.id)
+                           .replace(/{{multiple}}/g, element.multiple);
+                            el.append(data);
+                   }
                });
                $.get('view/list.html', function (data) {
                    var output = "";
@@ -159,7 +171,9 @@ var obj = {
                })
            }
         });
-        //return this;
+
+        $.fn.extend()
+
     };
 
 }( jQuery ))

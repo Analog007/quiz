@@ -82,7 +82,7 @@ body {
   width: 20px;
 }
 .module-quiz .module-quiz-type-list .question-item .subtitle {
-  font-weight: 800;
+  font-weight: 500;
   font-size: 18px;
 }
 .module-quiz .module-quiz-type-list .question-item:hover,
