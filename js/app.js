@@ -259,8 +259,8 @@ var questions = {
             "pic_location": "img/q7/q7-6.jpg"
         }]
     },
-    "7": {
-        "id": 7,
+    "8": {
+        "id": 8,
         "isActive": true,
         "title": "Pick a Beyoncé",
         "type": "grid",
@@ -302,33 +302,38 @@ var questions = {
 var results = {
     "1": {
         "title": "You got: Food",
-        "description": "lorem ipsum",
-        "pic_location": "img/q1-1.jpg"
+        "description": "You love everything life has to offer, especially things you can eat. And you want to live in a world that exists in harmony with nature, not against it. Excessive use of synthetic fertilisers or chemical pesticides on crops can be really harmful to the environment, people and animals. Ecological farming is the solution.",
+        "pic_location": "img/results/result-1.jpg",
+        "img_source": "Greenpeace / Via grnpc.org"
     },
     "2": {
-        "title": "Pick an animal",
-        "description": "lorem ipsum",
-        "pic_location": "img/q1-1.jpg"
+        "title": "You got: Oceans",
+        "description": "You go with the flow, letting the current take you where it will. You shape the world around you and want to make sure that it survives, for all creatures that live on it. Our majestic oceans need help against the destructive forces of unsustainable fishing, drilling, pollution and climate change. Send them an SOS.",
+        "pic_location": "img/results/result-2.jpg",
+        "img_source": "Greenpeace / Via grnpc.org"
     },
     "3": {
-        "title": "Pick an animal",
-        "description": "lorem ipsum",
-        "pic_location": "img/q1-1.jpg"
+        "title": "You got: Arctic",
+        "description": "You are determined, stoic and you can withstand almost anything that comes your way. But not climate change. The Arctic is getting warmer. And as the ice melts, oil companies are rushing to exploit newly available fossil fuel deposits, further contributing to the problem. This needs to stop. For the entire planet’s sake.",
+        "pic_location": "img/results/result-3.jpg",
+        "img_source": "Greenpeace / Via grnpc.org"
     },
     "4": {
-        "title": "Pick an animal",
-        "description": "lorem ipsum",
-        "pic_location": "img/q1-1.jpg"
+        "title": "You got: Detox",
+        "description": "You are too cool for school. If it’s not beautiful, then it’s not on you. Some totally unstylish companies ​are ​putting our planet at risk by us​ing​ hazardous chemicals to make ​our ​clothes. Don't they know, toxic-free fashion is becoming a must-have trend? It’s time they Detoxed.",
+        "pic_location": "img/results/result-4.jpg",
+        "img_source": "Greenpeace / Via grnpc.org"
     },
     "5": {
-        "title": "Pick an animal",
-        "description": "lorem ipsum",
-        "pic_location": "img/q1-1.jpg"
+        "title": "You got: Forests",
+        "description": "You’re fierce and strong and you’re never afraid to stand up for what’s right. You don’t let anything stand in your way. Think about this though: in the 2 minutes it has taken you to do this quiz, a forest area the size of 70 football pitches has been destroyed. Our last forest wildernesses are under threat from industrial scale deforestation. Paradise needs protecting.",
+        "pic_location": "img/results/result-5.jpg",
+        "img_source": "Greenpeace / Via grnpc.org",
     },
     "6": {
-        "title": "Pick an animal",
-        "description": "lorem ipsum",
-        "pic_location": "img/q1-1.jpg"
+        "title": "You got: Energy",
+        "description": "You are bright and full of life. You blow where the wind goes and light up every room you walk into. And you want to change the world for the better; you can envision a clean, renewable future for the benefit of all. Renewable energy can help us avert climate change. Join the Energy [R]evolution.",
+        "pic_location": "img/results/result-6.jpg"
     }
 };
 
@@ -417,7 +422,11 @@ var results = {
         var el = this;
         var answers = [];
         if($('.question:not(.answered)').length){
-            el.html("Please Answer for the following questions:");
+            el.html("<h4>Please answer the following questions: </h4>");
+            $('.question:not(.answered)').each(function(){
+                el.append('<a class="not-completed" href="#'+$(this).attr("id")+'" title="'+$(this).find('h3').text()+'">'+$(this).find('h3').text()+'</a>');
+            })
+
         } else {
             $('.question.answered .selected').each(function(){
                 answers.push($(this).data("id"));
@@ -429,9 +438,11 @@ var results = {
                 type: "get",
                 async: false,
                 success: function(data){
-                    data = data.replace(/{{title}}/g,results[cat].title)
+                    data = data.replace(/{{question_title}}/g,main["title"])
+                        .replace(/{{title}}/g,results[cat].title)
                         .replace(/{{pic_location}}/g,results[cat].pic_location)
-                        .replace(/{{description}}/g,results[cat].description);
+                        .replace(/{{description}}/g,results[cat].description)
+                        .replace(/{{img_source}}/g,results[cat].img_source);
 
                         el.html(data);
                         //turn ogg click functionality
