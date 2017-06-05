@@ -1,4 +1,4 @@
-var obj = {
+var questions = {
     "0": {
         "id": 1,
         "title": "Pick an animal",
@@ -65,7 +65,7 @@ var obj = {
         "id": 3,
         "title": "Pick an animalsss",
         "type": "grid",
-        "multiple": "false",
+        "multiple": "true",
         "elements": [{
             "category_id": 1,
             "description": "Greenpeace",
@@ -100,15 +100,30 @@ var obj = {
     },
 };
 
+var results = {
+    "1": {
+        "title": "Pick an animal",
+        "description": "lorem ipsum",
+        "pic_location": "img/q1-1.jpg"
+    },
+    "2": {
+        "title": "Pick an animal",
+        "description": "lorem ipsum",
+        "pic_location": "img/q1-1.jpg"
+    }
+};
+
 
 (function( $ ) {
-
+    //create the questions based on the json string
     $.fn.quiz = function() {
         var el = this;
-        $.each(obj, function() {
+
+        $.each(questions, function() {
            if(this.type == 'grid') {
                var item;
                var element = this;
+
                $.ajax({
                    url: 'view/grid-wrap.html',
                    type: "get",
@@ -130,11 +145,11 @@ var obj = {
                        if(i%wrap_items == 1) {
                            output += '<div class="row">';
                        }
-
                        item = data.replace(/{{category_id}}/g,this.category_id)
                            .replace(/{{description}}/g,this.description)
                            .replace(/{{subtitle}}/g,this.subtitle)
-                           .replace(/{{pic_location}}/g,this.pic_location);
+                           .replace(/{{pic_location}}/g,this.pic_location)
+                           .replace(/{{question_id}}/g,element.id);
                        output += item;
                        if(i%wrap_items == 0) {
                            output += '</div>';
@@ -147,6 +162,7 @@ var obj = {
                })
            } else if(this.type == 'list') {
                var element = this;
+
                $.ajax({
                    url: 'view/list-wrap.html',
                    type: "get",
@@ -163,7 +179,8 @@ var obj = {
                    output += '<div class="row">';
                    $.each(element.elements, function(){
                        item = data.replace(/{{category_id}}/g,this.category_id)
-                           .replace(/{{subtitle}}/g,this.subtitle);
+                           .replace(/{{subtitle}}/g,this.subtitle)
+                           .replace(/{{question_id}}/g,element.id);
                        output += item;
                    });
                    output += '</div>';
@@ -171,9 +188,29 @@ var obj = {
                })
            }
         });
-
-        $.fn.extend()
-
     };
 
-}( jQuery ))
+    $.fn.renderAnswers = function() {
+
+    }
+
+
+}( jQuery ));
+
+//click functions
+$(document).on('click','.question-item', function() {
+    var el = $(this);
+    if (!el.parents('.question-'+el.data("question")).data('select-multiple')) {
+        if (!el.hasClass('selected')) {
+            el.parents('.question-'+el.data("question")).find('.selected').removeClass('selected').find('i').toggleClass('fa-check-square-o fa-square-o');
+            el.addClass('selected').find('i').toggleClass('fa-square-o fa-check-square-o');
+        }
+    } else {
+        if (!el.hasClass('selected')) {
+            el.addClass('selected').find('i').toggleClass('fa-square-o fa-check-square-o');
+        } else {
+            el.removeClass('selected').find('i').toggleClass('fa-check-square-o fa-square-o');
+        }
+    }
+    $('.module-quiz-result').renderAnswers();
+});

@@ -22,10 +22,10 @@ body {
 .module-quiz .module-quiz-type-grid .question-item {
   border: 1px solid #eaecf3;
   border-radius: 1px;
-  -webkit-transition: background-color 250ms ease-out;
-  -moz-transition: background-color 250ms ease-out;
-  -o-transition: background-color 250ms ease-out;
-  transition: background-color 250ms ease-out;
+  -webkit-transition: background-color 200ms ease-out;
+  -moz-transition: background-color 200ms ease-out;
+  -o-transition: background-color 200ms ease-out;
+  transition: background-color 200ms ease-out;
   cursor: pointer;
   height: 100%;
   padding: 10px;
@@ -61,10 +61,10 @@ body {
 .module-quiz .module-quiz-type-list .question-item {
   border: 1px solid #eaecf3;
   border-radius: 1px;
-  -webkit-transition: background-color 250ms ease-out;
-  -moz-transition: background-color 250ms ease-out;
-  -o-transition: background-color 250ms ease-out;
-  transition: background-color 250ms ease-out;
+  -webkit-transition: background-color 200ms ease-out;
+  -moz-transition: background-color 200ms ease-out;
+  -o-transition: background-color 200ms ease-out;
+  transition: background-color 200ms ease-out;
   cursor: pointer;
   height: 100%;
   margin-bottom: 5px;
