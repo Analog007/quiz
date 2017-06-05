@@ -4,6 +4,7 @@
 }
 body {
   font-family: 'Open Sans', sans-serif;
+  padding-bottom: 20px;
 }
 .module-quiz h2 small {
   display: block;
