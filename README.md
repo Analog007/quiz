@@ -1,4 +1,4 @@
-# details for the app.
+# Details for the app.
 
 This project has a really simple design based on buzzfeed.com
 
