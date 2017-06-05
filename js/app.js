@@ -212,5 +212,10 @@ $(document).on('click','.question-item', function() {
             el.removeClass('selected').find('i').toggleClass('fa-check-square-o fa-square-o');
         }
     }
+    if(el.parents('.question-'+el.data("question")).find('.question-item.selected').length) {
+        $(this).parents('.question-'+el.data("question")).addClass('answered');
+    } else {
+        $(this).parents('.question-'+el.data("question")).removeClass('answered');
+    }
     $('.module-quiz-result').renderAnswers();
 });
